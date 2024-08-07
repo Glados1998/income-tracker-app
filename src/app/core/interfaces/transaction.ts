@@ -5,6 +5,7 @@ export interface ITransaction {
   description?: string;
   category: string;
   recurring: boolean;
+  recurringDate?: Date;
   currency: string;
   date: Date;
 }

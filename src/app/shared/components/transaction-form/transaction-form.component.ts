@@ -27,7 +27,7 @@ export class TransactionFormComponent implements OnInit {
   ngOnInit(): void {
     this.transactionForm = this._fb.group({
       type: ['income'],
-      amount: [null, [Validators.required, Validators.min(0)]],
+      amount: [null, [Validators.required, Validators.min(0.01)]],
       category: [null, Validators.required],
       recurring: [false],
       currency: [null, Validators.required],
@@ -42,7 +42,7 @@ export class TransactionFormComponent implements OnInit {
     }
     this.transactionForm.patchValue({ date: new Date(this.transactionForm.value.date) });
 
-    console.log(this.transactionForm.value);
+    this.transactionService.addTransaction(this.transactionForm.value);
     this.transactionForm.reset();
   }
 
