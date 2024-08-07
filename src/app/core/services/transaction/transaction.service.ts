@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ITransaction} from "../../interfaces/transaction";
-import {environment} from "../../../../environments/environment.development";
+import {environment} from "../../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransactionService {
 
-  private apiUrl = 'http://localhost:3000';  // URL to web api
+  private apiUrl = environment.api;
 
   constructor(
     private http: HttpClient
