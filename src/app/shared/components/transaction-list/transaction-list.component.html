@@ -1,3 +1,18 @@
 <div>
-<app-transaction-list-item *ngFor="let transaction of transactionsList" [transaction]="transaction"></app-transaction-list-item>
+  <div>
+    <h3>
+      Transactions List
+    </h3>
+  </div>
+  <div>
+    <ng-container *ngIf="transactionsList">
+      <app-transaction-list-item *ngFor="let transaction of transactionsList"
+                                 [transaction]="transaction"></app-transaction-list-item>
+    </ng-container>
+    <ng-container *ngIf="!transactionsList">
+      <span>
+        No transactions found, please add a new transaction.
+      </span>
+    </ng-container>
+  </div>
 </div>
