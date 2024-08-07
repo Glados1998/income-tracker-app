@@ -42,7 +42,14 @@ export class TransactionFormComponent implements OnInit {
     }
     this.transactionForm.patchValue({ date: new Date(this.transactionForm.value.date) });
 
-    this.transactionService.addTransaction(this.transactionForm.value);
+    this.transactionService.addTransaction(this.transactionForm.value).subscribe({
+      next: () => {
+        console.log('Transaction added successfully');
+      },
+      error: (error) => {
+        console.error('Error adding transaction:', error);
+      }
+    })
     this.transactionForm.reset();
   }
 

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {ITransaction} from "../../../core/interfaces/transaction";
 
 @Component({
   selector: 'app-transaction-list-item',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './transaction-list-item.component.scss'
 })
 export class TransactionListItemComponent {
+
+  @Input() transaction: ITransaction;
 
 }
