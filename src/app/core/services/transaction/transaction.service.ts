@@ -16,23 +16,23 @@ export class TransactionService {
   ) { }
 
   addTransaction(transaction: ITransaction): Observable<any> {
-      return this.http.post(`${this.apiUrl}/expenses`, transaction);
+      return this.http.post(`${this.apiUrl}/transaction`, transaction);
   }
 
   getTransactions(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/expenses`);
+    return this.http.get(`${this.apiUrl}/transaction`);
   }
 
   getTransaction(id: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/expenses/${id}`);
+    return this.http.get(`${this.apiUrl}/transaction/${id}`);
   }
 
   updateTransaction(transaction: ITransaction): Observable<any> {
-    return this.http.put(`${this.apiUrl}/expenses/${transaction.id}`, transaction);
+    return this.http.put(`${this.apiUrl}/transaction/${transaction.id}`, transaction);
   }
 
   deleteTransaction(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/expenses/${id}`);
+    return this.http.delete(`${this.apiUrl}/transaction/${id}`);
   }
 
 }
