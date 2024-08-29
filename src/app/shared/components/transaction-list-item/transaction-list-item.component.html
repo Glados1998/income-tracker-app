@@ -1,5 +1,53 @@
 <div>
-  <div>{{transaction.amount}}</div>
-  <div>{{transaction.type}}</div>
-  <div>{{transaction.category}}</div>
+  <ng-container *ngIf="!editMode">
+    <div>
+      <h3>{{ transaction.type }}</h3>
+      <div>
+        <span>{{ transaction.currency }}</span>:
+        <p>{{ transaction.amount }}</p>
+      </div>
+    </div>
+    <div>
+      <button (click)="deleteTransaction(transaction.id)">Delete</button>
+      <button (click)="editTransaction()">Edit</button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="editMode">
+    <form [formGroup]="transactionForm">
+      <div>
+        <label for="type">Type:</label>
+        <input type="text" id="type" formControlName="type" required>
+      </div>
+      <div>
+        <label for="currency">Currency:</label>
+        <select id="currency" formControlName="currency">
+          <option value="">Select Currency</option>
+          <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
+        </select>
+      </div>
+      <div>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" formControlName="amount" required>
+      </div>
+      <div *ngIf="transaction.type === 'income'">
+        <label for="incomeType">Income category:</label>
+        <select id="incomeType" formControlName="category">
+          <option value="">Select Income</option>
+          <option *ngFor="let type of incomeTypes" [value]="type">{{ type }}</option>
+        </select>
+      </div>
+      <div *ngIf="transaction.type === 'expense'">
+        <label for="expenseType">Expense category:</label>
+        <select id="expenseType" formControlName="category">
+          <option value="">Select Expense</option>
+          <option *ngFor="let type of expenseTypes" [value]="type">{{ type }}</option>
+        </select>
+      </div>
+    </form>
+    <div>
+      <button (click)="deleteTransaction(transaction.id)">Delete</button>
+      <button (click)="saveEditTransaction()">Save Edit</button>
+      <button (click)="cancelEditTransaction()">Cancel</button>
+    </div>
+  </ng-container>
 </div>

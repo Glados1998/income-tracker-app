@@ -1,6 +1,36 @@
+button, .btn-main {
+  padding: 0.3rem 0.35rem;
+  margin: 0.35rem;
+  border-radius: 0.3rem;
+  border: #173856 solid 0.15rem;
+  transition: all 0.3s ease-in-out;
+  background: #ffffff;
+}
+button:hover, .btn-main:hover {
+  background: #173856;
+  color: #ffffff;
+  transition: all 0.3s ease-in-out;
+}
+
 * {
   font-family: Inter, sans-serif;
-  font-weight: bold;
+  margin: 0;
+  font-weight: 600;
+}
+
+main {
+  background: #ffffff;
+  color: #173856;
+}
+
+header {
+  padding: 1rem;
+  background: #88A6B8;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+header nav {
+  display: flex;
 }
 
 /*# sourceMappingURL=style.css.map */

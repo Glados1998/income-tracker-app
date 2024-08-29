@@ -1,1 +1,17 @@
 @import "colors";
+
+button, .btn-main {
+  padding: .3rem .35rem;
+  margin: .35rem;
+  border-radius: .3rem;
+  border: $main-color solid .15rem;
+  transition: all 0.3s ease-in-out;
+  background: $quaternary-color;
+
+
+  &:hover {
+    background: $main-color;
+    color: $quaternary-color;
+    transition: all 0.3s ease-in-out;
+  }
+}

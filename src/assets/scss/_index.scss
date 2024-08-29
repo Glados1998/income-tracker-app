@@ -5,5 +5,24 @@
 
 * {
   font-family: Inter, sans-serif;
-  font-weight: bold;
+  margin: 0;
+  font-weight: 600;
+
+}
+
+main {
+  background: $quaternary-color;
+  color: $main-color;
+
+}
+
+header {
+  padding: 1rem;
+  background: $secondary-color;
+  color: $quaternary-color;
+  margin-bottom: 2rem;
+
+  nav {
+    display: flex;
+  }
 }
